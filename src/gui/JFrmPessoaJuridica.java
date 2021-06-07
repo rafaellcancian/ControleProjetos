@@ -1,26 +1,26 @@
 
 package gui;
 
-import controller.PessoaFisicaController;
+import controller.PessoaJuridicaController;
 import java.awt.Component;
 import java.awt.Container;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import model.PessoaFisica;
+import model.PessoaJuridica;
 
-public class JFrmPessoaFisica extends javax.swing.JFrame {
+public class JFrmPessoaJuridica extends javax.swing.JFrame {
 
     private boolean alt = false;
-    private int idPessoaFisica = 0;
+    private int idPessoaJuridica = 0;
 
-    public JFrmPessoaFisica(PessoaFisica pf) {
+    public JFrmPessoaJuridica(PessoaJuridica pj) {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        if (pf != null) {
-            preencheCampos(pf);
+        if (pj != null) {
+            preencheCampos(pj);
         } else {
-            jTxtNome.requestFocus();
+            jTxtNomeFantasia.requestFocus();
         }
     }
 
@@ -29,11 +29,12 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
     private void initComponents() {
 
         jPnlCampos = new javax.swing.JPanel();
-        jTxtNome = new javax.swing.JTextField();
+        jTxtNomeFantasia = new javax.swing.JTextField();
         jTxtEndereco = new javax.swing.JTextField();
         jTxtEmail = new javax.swing.JTextField();
-        jTxtCpf = new javax.swing.JTextField();
+        jTxtCnpj = new javax.swing.JTextField();
         jTxtFone = new javax.swing.JTextField();
+        jTxtRazaoSocial = new javax.swing.JTextField();
         jPnlBotoes = new javax.swing.JPanel();
         jBtnIncluir = new javax.swing.JButton();
         jBtnSalvar = new javax.swing.JButton();
@@ -42,7 +43,7 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
         jBtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Controle de Projetos - Cadastro Pessoa Física");
+        setTitle("Controle de Projetos - Cadastro Pessoa Jurídica");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -52,11 +53,11 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
 
         jPnlCampos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTxtNome.setBackground(new java.awt.Color(240, 240, 240));
-        jTxtNome.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome:"));
-        jTxtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTxtNomeFantasia.setBackground(new java.awt.Color(240, 240, 240));
+        jTxtNomeFantasia.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome fantasia:"));
+        jTxtNomeFantasia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTxtNomeKeyTyped(evt);
+                jTxtNomeFantasiaKeyTyped(evt);
             }
         });
 
@@ -64,7 +65,7 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
         jTxtEndereco.setBorder(javax.swing.BorderFactory.createTitledBorder("Endereço:"));
         jTxtEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTxtNomeKeyTyped(evt);
+                jTxtNomeFantasiaKeyTyped(evt);
             }
         });
 
@@ -72,15 +73,15 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
         jTxtEmail.setBorder(javax.swing.BorderFactory.createTitledBorder("E-mail:"));
         jTxtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTxtNomeKeyTyped(evt);
+                jTxtNomeFantasiaKeyTyped(evt);
             }
         });
 
-        jTxtCpf.setBackground(new java.awt.Color(240, 240, 240));
-        jTxtCpf.setBorder(javax.swing.BorderFactory.createTitledBorder("CPF:"));
-        jTxtCpf.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTxtCnpj.setBackground(new java.awt.Color(240, 240, 240));
+        jTxtCnpj.setBorder(javax.swing.BorderFactory.createTitledBorder("CNPJ:"));
+        jTxtCnpj.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTxtNomeKeyTyped(evt);
+                jTxtNomeFantasiaKeyTyped(evt);
             }
         });
 
@@ -88,7 +89,15 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
         jTxtFone.setBorder(javax.swing.BorderFactory.createTitledBorder("Telefone:"));
         jTxtFone.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTxtNomeKeyTyped(evt);
+                jTxtNomeFantasiaKeyTyped(evt);
+            }
+        });
+
+        jTxtRazaoSocial.setBackground(new java.awt.Color(240, 240, 240));
+        jTxtRazaoSocial.setBorder(javax.swing.BorderFactory.createTitledBorder("Razão social:"));
+        jTxtRazaoSocial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTxtNomeFantasiaKeyTyped(evt);
             }
         });
 
@@ -99,11 +108,12 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
             .addGroup(jPnlCamposLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTxtNome)
+                    .addComponent(jTxtNomeFantasia)
                     .addComponent(jTxtEndereco)
                     .addComponent(jTxtEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTxtRazaoSocial)
                     .addGroup(jPnlCamposLayout.createSequentialGroup()
-                        .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTxtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTxtFone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -112,14 +122,16 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
             jPnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPnlCamposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxtNomeFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTxtRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTxtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtFone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -216,7 +228,7 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPnlCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPnlBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -225,13 +237,13 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
-        PessoaFisicaController pfc = new PessoaFisicaController();
-        int erro = pfc.incluir(jTxtNome.getText(), jTxtEndereco.getText(), jTxtCpf.getText(), jTxtEmail.getText(), jTxtFone.getText());
+        PessoaJuridicaController pjc = new PessoaJuridicaController();
+        int erro = pjc.incluir(jTxtNomeFantasia.getText(), jTxtRazaoSocial.getText(), jTxtEndereco.getText(), jTxtCnpj.getText(), jTxtEmail.getText(), jTxtFone.getText());
 
         if (erro > -1) {
             if (erro == 1062) {
-                JOptionPane.showMessageDialog(this, "CPF já cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
-                jTxtCpf.requestFocus();
+                JOptionPane.showMessageDialog(this, "CNPJ já cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                jTxtCnpj.requestFocus();
             } else {
                 JOptionPane.showMessageDialog(this, "Erro número: " + erro, "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
             }
@@ -249,28 +261,28 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
         limpaCampos(jPnlCampos);
     }//GEN-LAST:event_jBtnCancelarActionPerformed
 
-    private void jTxtNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtNomeKeyTyped
+    private void jTxtNomeFantasiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtNomeFantasiaKeyTyped
         if (alt) {
             jBtnExcluir.setEnabled(false);
             jBtnSalvar.setEnabled(true);
         }
         jBtnCancelar.setEnabled(true);
-    }//GEN-LAST:event_jTxtNomeKeyTyped
+    }//GEN-LAST:event_jTxtNomeFantasiaKeyTyped
 
     private void jBtnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSairActionPerformed
-        JFrmLstPessoaFisica frmLstPessoaFisica = new JFrmLstPessoaFisica();
-        frmLstPessoaFisica.setVisible(true);
+        JFrmLstPessoaJuridica frmLstPessoaJuridica = new JFrmLstPessoaJuridica();
+        frmLstPessoaJuridica.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBtnSairActionPerformed
 
     private void jBtnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalvarActionPerformed
-        PessoaFisicaController pfc = new PessoaFisicaController();
-        int erro = pfc.alterar(idPessoaFisica, jTxtNome.getText(), jTxtEndereco.getText(), jTxtCpf.getText(), jTxtEmail.getText(), jTxtFone.getText());
+        PessoaJuridicaController pjc = new PessoaJuridicaController();
+        int erro = pjc.alterar(idPessoaJuridica, jTxtNomeFantasia.getText(), jTxtRazaoSocial.getText(), jTxtEndereco.getText(), jTxtCnpj.getText(), jTxtEmail.getText(), jTxtFone.getText());
 
         if (erro > -1) {
             if (erro == 1062) {
-                JOptionPane.showMessageDialog(this, "CPF já cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
-                jTxtCpf.requestFocus();
+                JOptionPane.showMessageDialog(this, "CNPJ já cadastrado!", "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
+                jTxtCnpj.requestFocus();
             } else {
                 JOptionPane.showMessageDialog(this, "Erro número: " + erro, "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
             }
@@ -286,8 +298,8 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
     private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         switch (JOptionPane.showConfirmDialog(this, "Confirma a exclusão?", "Mensagem de confirmação", JOptionPane.YES_NO_OPTION)) {
             case 0: {
-                PessoaFisicaController pfc = new PessoaFisicaController();
-                int erro = pfc.excluir(idPessoaFisica);
+                PessoaJuridicaController pjc = new PessoaJuridicaController();
+                int erro = pjc.excluir(idPessoaJuridica);
 
                 if (erro > -1) {
                     JOptionPane.showMessageDialog(this, "Erro número: " + erro, "Mensagem de erro", JOptionPane.ERROR_MESSAGE);
@@ -304,8 +316,8 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        JFrmLstPessoaFisica frmLstPessoaFisica = new JFrmLstPessoaFisica();
-        frmLstPessoaFisica.setVisible(true);
+        JFrmLstPessoaJuridica frmLstPessoaJuridica = new JFrmLstPessoaJuridica();
+        frmLstPessoaJuridica.setVisible(true);
         dispose();
     }//GEN-LAST:event_formWindowClosing
 
@@ -315,17 +327,18 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
             if (component instanceof JTextField) {
                 ((JTextField) component).setText(null);
             }
-            jTxtNome.requestFocus();
+            jTxtNomeFantasia.requestFocus();
         }
     }
 
-    private void preencheCampos(PessoaFisica pf) {
-        idPessoaFisica = pf.getIdCliente();
-        jTxtNome.setText(pf.getNome());
-        jTxtEndereco.setText(pf.getEndereco());
-        jTxtEmail.setText(pf.getEmail());
-        jTxtCpf.setText(pf.getCpf());
-        jTxtFone.setText(pf.getFone());
+    private void preencheCampos(PessoaJuridica pj) {
+        idPessoaJuridica = pj.getIdCliente();
+        jTxtNomeFantasia.setText(pj.getNomeFantasia());
+        jTxtRazaoSocial.setText(pj.getRazaoSocial());
+        jTxtEndereco.setText(pj.getEndereco());
+        jTxtEmail.setText(pj.getEmail());
+        jTxtCnpj.setText(pj.getCnpj());
+        jTxtFone.setText(pj.getFone());
         jBtnIncluir.setEnabled(false);
         jBtnSalvar.setEnabled(false);
         jBtnExcluir.setEnabled(true);
@@ -340,10 +353,11 @@ public class JFrmPessoaFisica extends javax.swing.JFrame {
     private javax.swing.JButton jBtnSalvar;
     private javax.swing.JPanel jPnlBotoes;
     private javax.swing.JPanel jPnlCampos;
-    private javax.swing.JTextField jTxtCpf;
+    private javax.swing.JTextField jTxtCnpj;
     private javax.swing.JTextField jTxtEmail;
     private javax.swing.JTextField jTxtEndereco;
     private javax.swing.JTextField jTxtFone;
-    private javax.swing.JTextField jTxtNome;
+    private javax.swing.JTextField jTxtNomeFantasia;
+    private javax.swing.JTextField jTxtRazaoSocial;
     // End of variables declaration//GEN-END:variables
 }

@@ -90,7 +90,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnPessoaFisicaActionPerformed
 
     private void jBtnPessoaJuridicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPessoaJuridicaActionPerformed
-        // TODO add your handling code here:
+        JFrmLstPessoaJuridica frmLstPessoaJuridica = new JFrmLstPessoaJuridica();
+        frmLstPessoaJuridica.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jBtnPessoaJuridicaActionPerformed
 
     private void jBtnColaboradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnColaboradorActionPerformed
