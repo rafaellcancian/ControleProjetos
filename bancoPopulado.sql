@@ -41,6 +41,15 @@ CREATE TABLE `alocacao` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `alocacao`
+--
+
+LOCK TABLES `alocacao` WRITE;
+/*!40000 ALTER TABLE `alocacao` DISABLE KEYS */;
+/*!40000 ALTER TABLE `alocacao` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cliente`
 --
 
@@ -55,6 +64,16 @@ CREATE TABLE `cliente` (
   PRIMARY KEY (`idCliente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Rua Aureliano de Figueiredo Pinto','rafael.londero@ufn.edu.br','5555996149643'),(2,'Rua dos Andradas','guilherme.kuhn@ufn.edu.br','5555999999999'),(3,'Av. N. Sra. das Dores','contato@cancianimoveis.com','553033400');
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `colaborador`
@@ -75,6 +94,16 @@ CREATE TABLE `colaborador` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `colaborador`
+--
+
+LOCK TABLES `colaborador` WRITE;
+/*!40000 ALTER TABLE `colaborador` DISABLE KEYS */;
+INSERT INTO `colaborador` VALUES (1,'20408095','Paulo Machado','2021-05-25','2022-05-25');
+/*!40000 ALTER TABLE `colaborador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `pessoafisica`
 --
 
@@ -91,6 +120,16 @@ CREATE TABLE `pessoafisica` (
   CONSTRAINT `fk_PessoaFisica_Cliente1` FOREIGN KEY (`idPessoaFisica`) REFERENCES `cliente` (`idCliente`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pessoafisica`
+--
+
+LOCK TABLES `pessoafisica` WRITE;
+/*!40000 ALTER TABLE `pessoafisica` DISABLE KEYS */;
+INSERT INTO `pessoafisica` VALUES (1,'031.355.900-70','Rafael Londero Cancian'),(2,'123.456.789-99','Guilherme da Silva Kuhn');
+/*!40000 ALTER TABLE `pessoafisica` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pessoajuridica`
@@ -110,6 +149,16 @@ CREATE TABLE `pessoajuridica` (
   CONSTRAINT `fk_PessoaJuridica_Cliente1` FOREIGN KEY (`idPessoaJuridica`) REFERENCES `cliente` (`idCliente`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pessoajuridica`
+--
+
+LOCK TABLES `pessoajuridica` WRITE;
+/*!40000 ALTER TABLE `pessoajuridica` DISABLE KEYS */;
+INSERT INTO `pessoajuridica` VALUES (3,'17.221.031/0001-75','Cancian Imóveis','Imobiliária');
+/*!40000 ALTER TABLE `pessoajuridica` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `projeto`
@@ -139,6 +188,16 @@ CREATE TABLE `projeto` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `projeto`
+--
+
+LOCK TABLES `projeto` WRITE;
+/*!40000 ALTER TABLE `projeto` DISABLE KEYS */;
+INSERT INTO `projeto` VALUES (2,1,1,'20704045','Projeto de teste','Descrição','2021-06-06','2021-06-08','2021-06-09',0);
+/*!40000 ALTER TABLE `projeto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tarefa`
 --
 
@@ -162,6 +221,15 @@ CREATE TABLE `tarefa` (
   CONSTRAINT `fk_Colaborador_has_Projeto_Projeto1` FOREIGN KEY (`idProjeto`) REFERENCES `projeto` (`idProjeto`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tarefa`
+--
+
+LOCK TABLES `tarefa` WRITE;
+/*!40000 ALTER TABLE `tarefa` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tarefa` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -172,4 +240,4 @@ CREATE TABLE `tarefa` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-09 12:16:14
+-- Dump completed on 2021-06-09 12:15:52

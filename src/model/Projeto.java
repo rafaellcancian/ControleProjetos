@@ -11,6 +11,7 @@ public class Projeto {
     private Date dataInicio;
     private Date dataPrevConclusao;
     private Date dataConclusao;
+    private int tipoCliente;
     private Cliente cliente;
     private Colaborador lider;
     
@@ -72,6 +73,14 @@ public class Projeto {
 
     public void setDataConclusao(Date dataConclusao) {
         this.dataConclusao = dataConclusao;
+    }
+
+    public int getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void setTipoCliente(int tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
     public Cliente getCliente() {

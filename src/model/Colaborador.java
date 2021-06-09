@@ -10,6 +10,10 @@ public class Colaborador {
     private Date dataAdmissao;
     private Date dataDesligamento;
 
+    public Colaborador(int id) {
+        this.idColaborador = id;
+    }
+    
     public Colaborador() {
         
     }
@@ -52,6 +56,11 @@ public class Colaborador {
 
     public void setDataDesligamento(Date dataDesligamento) {
         this.dataDesligamento = dataDesligamento;
+    }
+    
+    @Override
+    public String toString(){
+        return nome;
     }
     
 }

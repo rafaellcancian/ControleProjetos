@@ -34,4 +34,9 @@ public class PessoaJuridica extends Cliente {
         this.razaoSocial = razaoSocial;
     }
     
+    @Override
+    public String toString(){
+        return nomeFantasia;
+    }
+    
 }

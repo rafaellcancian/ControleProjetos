@@ -100,7 +100,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnColaboradorActionPerformed
 
     private void jBtnProjetosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnProjetosActionPerformed
-        // TODO add your handling code here:
+        JFrmLstProjeto frmLstProjeto = new JFrmLstProjeto();
+        frmLstProjeto.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jBtnProjetosActionPerformed
 
     public static void main(String args[]) {
