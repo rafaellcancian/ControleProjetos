@@ -44,7 +44,7 @@ public class JFrmColaboradores extends javax.swing.JFrame {
         jBtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Controle de Projetos - Cadastro Projeto");
+        setTitle("Controle de Projetos - Cadastro Colaborador");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -119,8 +119,6 @@ public class JFrmColaboradores extends javax.swing.JFrame {
                     .addComponent(jTxtDataConclusao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jTxtDataInicio.getAccessibleContext().setAccessibleName("Data Admissão:");
 
         jPnlBotoes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPnlBotoes.setDoubleBuffered(false);

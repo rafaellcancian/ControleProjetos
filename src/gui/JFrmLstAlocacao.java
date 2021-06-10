@@ -31,7 +31,7 @@ public class JFrmLstAlocacao extends javax.swing.JFrame {
         jTblProjeto = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Controle de Projetos - Projetos Cadastrados");
+        setTitle("Controle de Projetos - Alocações Cadastradas");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
