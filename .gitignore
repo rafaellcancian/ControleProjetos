@@ -6,3 +6,5 @@
 
 # NetBeans specific #
 build/
+bin/
+test/

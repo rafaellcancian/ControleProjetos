@@ -45,6 +45,8 @@ public class AlocacaoTableModel extends AbstractTableModel {
             return p.getIdAlocacao();
         } else if (columnIndex == 1) {
             return p.getDataInicio();
+        }else if (columnIndex == 2) {
+            return p.getDataFim();
         }
         return "";
     }

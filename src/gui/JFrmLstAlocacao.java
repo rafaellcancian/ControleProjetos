@@ -2,6 +2,7 @@
 package gui;
 
 import controller.AlocacaoController;
+import javax.swing.JOptionPane;
 import tablemodel.AlocacaoTableModel;
 import model.Alocacao;
 
@@ -137,39 +138,20 @@ public class JFrmLstAlocacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTblProjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblProjetoMouseClicked
-        /*AlocacaoTableModel modelo = (AlocacaoTableModel) jTblProjeto.getModel();
-        Projeto p = modelo.getProjeto(jTblProjeto.getSelectedRow());
-        JFrmProjeto frmProjeto = new JFrmProjeto(p);
-        frmProjeto.setVisible(true);
-        dispose();*/
+ 
     }//GEN-LAST:event_jTblProjetoMouseClicked
 
     private void jBtnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAdicionarActionPerformed
-        JFrmProjeto frmProjeto = new JFrmProjeto(null);
-        frmProjeto.setVisible(true);
-        dispose();        
+        JOptionPane.showMessageDialog(this, "Não implementado :(");      
     }//GEN-LAST:event_jBtnAdicionarActionPerformed
 
     private void jTxtProcuraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtProcuraKeyTyped
-       /* String chave = jTxtProcura.getText();
-        if (chave.equals("")) {
-            chave = String.valueOf(evt.getKeyChar());
-        } else if (evt.getKeyChar() != '\b') {
-            chave = chave + evt.getKeyChar();
-        }
-        switch (jCmbCampos.getSelectedIndex()) {
-            case 1: pTblModel = new AlocacaoTableModel(pjc.getProjetoNome(chave)); break;
-            case 2: pTblModel = new AlocacaoTableModel(pjc.getProjetoMatricula(chave)); break;
-        }
-        jTblProjeto.setModel(pTblModel);*/
+        JOptionPane.showMessageDialog(this, "Não implementado :(");  
+
     }//GEN-LAST:event_jTxtProcuraKeyTyped
 
     private void jCmbCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbCamposActionPerformed
-        if (jCmbCampos.getSelectedIndex() == 0) {
-            pTblModel = new AlocacaoTableModel(pjc.lstAlocacao());
-            jTblProjeto.setModel(pTblModel);
-        }
-        jTxtProcura.requestFocus();
+        JOptionPane.showMessageDialog(this, "Não implementado :(");  
     }//GEN-LAST:event_jCmbCamposActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

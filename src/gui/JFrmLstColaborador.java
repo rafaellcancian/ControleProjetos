@@ -2,6 +2,7 @@
 package gui;
 
 import controller.ColaboradorController;
+import javax.swing.JOptionPane;
 import tablemodel.ColaboradorTableModel;
 import model.Colaborador;
 
@@ -204,6 +205,7 @@ public class JFrmLstColaborador extends javax.swing.JFrame {
 
     private void jBtnTarefasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnTarefasActionPerformed
         // chamar frame do Tarefas.
+        JOptionPane.showMessageDialog(this, "Não implementado :(");
     }//GEN-LAST:event_jBtnTarefasActionPerformed
 
     private void jBtnAlocacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlocacoesActionPerformed
