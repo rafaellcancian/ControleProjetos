@@ -13,7 +13,7 @@ public class Alocacao {
     private Projeto projeto;
     private Colaborador colaborador;
     
-    private Alocacao() {
+    public Alocacao() {
         
     }
 

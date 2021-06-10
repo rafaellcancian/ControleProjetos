@@ -12,7 +12,7 @@ public class ConnectionFactory {
         try {
             String banco = "bdcontrole";
             String usuario = "root";
-            String senha = "root";
+            String senha = "guilh3rm";
             con = DriverManager.getConnection("jdbc:mysql://localhost/" + banco, usuario, senha);
             return con;
         } catch (SQLException e) {
